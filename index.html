@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>夜月残缺</title>
+    <meta name="description"
+        content="夜月残缺">
+    <meta name="keywords" content="夜月残缺">
+    <link rel="stylesheet" type="text/css" href="./css/nutssss.css">
+    <link rel="icon" href="./favicon.ico">
+	<script>
+    var i=0;
+    function myDate(){
+        var now=new Date();
+        var year=now.getFullYear();
+        var month=now.getMonth()+1;
+        var day=now.getDate();
+        var hours=now.getHours();
+        var minutes=now.getMinutes();
+        var seconds=now.getSeconds();
+ 
+        document.getElementById("time").innerHTML="当前时间："+year+"年"+month+"月"+day+"日  "+hours+":"+minutes+":"+seconds;
+    }
+    setInterval(myDate,1000);
+</script>
+</head>
+
+<body>
+
+    <div id="box">
+        <!-- 个人资料卡片 -->
+        <div class="meBox">
+            <!-- 头像 -->
+            <div class="headPhoto"></div>
+            <!-- 介绍 -->
+            <div class="meBox-title">
+                <p>夜月残缺</p>
+                <div class="fg"></div>
+            </div>
+            <div class="meBox-text">
+                <p>我是一条咸鱼<img src="./img/fish.png" alt="咸鱼" style="width: 20px; vertical-align: middle;">；</p>
+                <p>瞎折腾，浪费时间最在行；</p>
+				<p>个性签名：刻意的强求，不然顺其自然！</p>
+                <!--<p>最爱<img src="./img/002.png" alt="冰激凌" style="width: 15px; vertical-align: middle;"></p>-->
+            </div>
+            <!-- 两个按钮
+            <div class="meBox-Button">
+                <a href="#">关于</a>
+                <a href="#">联系</a>
+            </div>-->
+        </div>
+
+        <!-- 伪终端介绍 -->
+        <div id="cmdBox">
+            <!-- 第一个终端 -->
+            <div class="cmd">
+                <!-- 三个按钮 -->
+                <div class="click">
+                    <div class="red"></div>
+                    <div class="yellow"></div>
+                    <div class="green"></div>
+                </div>
+                <!-- 顶部标题 -->
+                <div class="title">
+                    <span>yycq - bash</span>
+                </div>
+                <!-- 终端内文字 -->
+                <div class="cmdText">
+                    <span style="color: rgb(0, 190, 0);">[root@yycq</span>
+                    <span style="color: blue;">]$ </span>
+                    <span style="color: rgb(39, 39, 39);">./time.sh</span>
+					<div id="time"></div>
+					<br />
+                    <span style="color: rgb(0, 190, 0);">[root@yycq</span>
+                    <span style="color: blue;">]$ </span>
+                    <p>爱好摆烂，会去学一些自己感兴趣的东西</p>
+                    <p>略懂H5、php、易语言开发，爱好折腾</p>
+                    <span style="color: rgb(0, 190, 0);">[root@yycq</span>
+                    <span style="color: blue;">]$ </span>
+                    <span style="color: rgb(39, 39, 39);">sudo rm -rf /过去的自己/*</span>
+                </div>
+            </div>
+            <!-- 第二个终端 -->
+            <div class="cmd cmd2">
+                <!-- 三个按钮 -->
+                <div class="click">
+                    <div class="red"></div>
+                    <div class="yellow"></div>
+                    <div class="green"></div>
+                </div>
+                <!-- 顶部标题 -->
+                <div class="title">
+                    <span>yycq - bash</span>
+                </div>
+                <!-- 终端内文字 -->
+                <div class="cmdText">
+                    <span style="color: rgb(0, 190, 0);">[root@yycq</span>
+                    <span style="color: blue;">]$ </span>
+                    <span style="color: rgb(39, 39, 39);">./links.sh</span>
+                    <p>我的其他站点：</p>
+                    <ul class="ul">
+                        <li><a href="http://yeycq.vicp.io/">家族族谱</a></li>
+						<li><a href="http://w578136454.vicp.cc/">流水账统计</a></li>
+                        <li><a href="http://jkdp.cyyl.top/">销售情况监控大屏</a></li>
+                        <li><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=qZyekZian52cnenY2IfKxsQ">我的邮箱</a></li>
+                    </ul>
+                    <span style="color: rgb(0, 190, 0);">[root@yycq</span>
+                    <span style="color: blue;">]$<a class="blinking-cursor">&nbsp;</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div id="footer">
+        <!--<p>© 2023 yycq | <a href="http://www.cyyl.top/">黔ICP备XXXXXX号</a></p>-->
+        <p>theme made BY <a href="http://www.cyyl.top/">残月娱乐</a></p>
+    </div>
+</body>
+<style>
+  .blinking-cursor {
+    font-size: 20px;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 1px solid black;
+    animation: blinkCursor 0.7s step-end infinite;
+  }
+  @keyframes blinkCursor {
+    from, to { opacity: 0; }
+    50% { opacity: 1; }
+  }
+</style>
+</html>
