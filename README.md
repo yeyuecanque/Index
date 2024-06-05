@@ -1,4 +1,4 @@
-# NutssssIndex
+# Index
 简约个人主页、自适应  
 [预览](http://www.cyyl.top/)
 ## 简介 
