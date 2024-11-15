@@ -25,11 +25,11 @@ body {
 
 .meBox {
     float: left;
-    width: 20rem;
-    height: 25rem;
+    width: 20rem;/* 左侧介绍框宽 */
+    height: 25rem;/* 左侧介绍框高 */
     background-color: white;
     margin-top: 100px;
-    border-radius: 2%;
+    border-radius: 2%;/* 左侧介绍框四角弧度 */
     transition: all 0.3s;
     text-align: center;
 }
@@ -84,7 +84,7 @@ body {
 
 .meBox-title p {
     font-size: 1.2rem;
-    border-right: .1em solid;
+    /*border-right: .1em solid;/* 左侧介绍框光标闪动效果 */
     width: 12ch;
     white-space: nowrap;
     overflow: hidden;
@@ -171,8 +171,8 @@ body {
 }
 
 .cmd {
-    width: 620px;
-    height: 440px;
+    width: 600px;
+    height: 410px;
     border-radius: 10px 10px 5px 5px;
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.9);
