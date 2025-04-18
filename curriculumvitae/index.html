@@ -1,135 +1,367 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-    <title>夜月残缺</title>
-    <meta name="description"
-        content="夜月残缺">
-    <meta name="keywords" content="夜月残缺">
-    <link rel="stylesheet" type="text/css" href="./css/nutssss.css">
-    <link rel="icon" href="./favicon.ico">
-	<script>
-    var i=0;
-    function myDate(){
-        var now=new Date();
-        var year=now.getFullYear();
-        var month=now.getMonth()+1;
-        var day=now.getDate();
-        var hours=now.getHours();
-        var minutes=now.getMinutes();
-        var seconds=now.getSeconds();
- 
-        document.getElementById("time").innerHTML="当前时间："+year+"年"+month+"月"+day+"日  "+hours+":"+minutes+":"+seconds;
-    }
-    setInterval(myDate,1000);
-</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f4;
+            --card-bg-color: #ffffff;
+            --text-color: #333333;
+            --link-color: #007BFF;
+            --link-hover-color: #0056b3;
+            --divider-color: #e8e8e8;
+            --progress-bg-color: #e9ecef;
+            --progress-bar-color: #007BFF;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        .card {
+            background-color: var(--card-bg-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            max-width: 85%;
+            padding: 30px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.1);
+        }
+
+        .name-contact {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .position {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .contact {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .contact a {
+            color: var(--link-color);
+            text-decoration: none;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: var(--link-hover-color);
+        }
+
+        .intro {
+            font-family: 'Dancing Script', cursive;
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        .intro::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: var(--link-color);
+        }
+
+        .section {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: var(--divider-color);
+        }
+
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+        }
+
+        .timeline-item h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .progress-bar {
+            background-color: var(--progress-bg-color);
+            border-radius: 5px;
+            height: 20px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .progress {
+            background-color: var(--progress-bar-color);
+            border-radius: 5px;
+            height: 100%;
+            text-align: left;
+            padding-left: 10px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .radar-chart {
+            width: 100%;
+            height: 230px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .skills-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .progress-container {
+            flex: 1;
+        }
+
+        .radar-container {
+            flex: 1;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .footer-contact a {
+            color: var(--link-color);
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: var(--link-hover-color);
+        }
+    </style>
+	 <!--<link rel="stylesheet" type="text/css" href="css/css2.css" />-->
+	<link rel="stylesheet" type="text/css" href="css/all.min.css" />
+	<script type="text/javascript" src="js/chart.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/clipboard.min.js"></script>
 </head>
 
 <body>
-
-    <div id="box">
-        <!-- 个人资料卡片 -->
-        <div class="meBox">
-            <!-- 头像 -->
-            <div class="headPhoto"></div>
-            <!-- 介绍 -->
-            <div class="meBox-title">
-                <p>夜月残缺</p>
-                <div class="fg"></div>
-            </div>
-            <div class="meBox-text">
-                <p>刻意的强求，不然顺其自然！</p>
-				<p><img src="./img/qrcode_www.cyyl.top.png" alt="本站二维码" style="width: 150px; vertical-align: middle;"></p>
-				<p>本站二维码</p>
-            </div>
-            <!-- 两个按钮
-            <div class="meBox-Button">
-                <a href="#">关于</a>
-                <a href="#">联系</a>
-            </div>-->
-        </div>
-
-        <!-- 伪终端介绍 -->
-        <div id="cmdBox">
-            <!-- 第一个终端 -->
-            <div class="cmd">
-                <!-- 左边三个按钮 -->
-                <div class="click">
-                    <div class="red"></div>
-                    <div class="yellow"></div>
-                    <div class="green"></div>
+    <div class="card">
+        <div class="header">
+            <img class="avatar" src="favicon.ico" alt="img">
+            <div class="name-contact">
+                <div class="name">王成</div>
+                <!--<div class="position">管理员</div>-->
+                <div class="contact">
+                    <a href="tel:13985454012">联系电话: 13985454012</a>
+                    <a href="mailto:578136454@qq.com">邮箱: 578136454@qq.com </a>
+                    <a class="btn" data-clipboard-action="copy" data-clipboard-target="#target" id="copy_btn">微信: <span id="target">xiaoyao578136454</span></a>
+                    <a href="http://www.cyyl.top">个人主页: www.cyyl.top</a>
+					<a href="https://github.com/yeyuecanque">GitHub: yeyuecanque</a>
                 </div>
-                <!-- 顶部标题 -->
-                <div class="title">
-                    <span>yycq - bash</span>
-                </div>
-				
-                <!-- 终端内文字 -->
-                <div class="cmdText">
-                    <span style="color: rgb(0, 190, 0);">[root@yycq</span>
-                    <span style="color: blue;">]$ </span>
-                    <span style="color: rgb(39, 39, 39);">./time.sh</span>
-					<div id="time"></div>
-                    <span style="color: rgb(0, 190, 0);">[root@yycq</span>
-                    <span style="color: blue;">]$ </span>
-					<span style="color: rgb(39, 39, 39);">./hobby.sh</span>
-                    <p>爱好摆烂，会去学一些自己感兴趣的东西；</p>
-                    <p>略懂H5、php、易语言，喜欢折腾。</p>
-                    <span style="color: rgb(0, 190, 0);">[root@yycq</span>
-                    <span style="color: blue;">]$ </span>
-		    <span style="color: rgb(39, 39, 39);">./Contact information.sh</span>
-                    <p>QQ：578136454</p>
-                    <p>e-mail：578136454@qq.com</p>
-		    <span style="color: rgb(0, 190, 0);">[root@yycq</span>
-                    <span style="color: blue;">]$ </span>
-                    <span style="color: rgb(39, 39, 39);">./links.sh</span>
-                    <p>我的其他站点：</p>
-                        <li><a href="http://blog.cyyl.top/">我的博客</a></li>
-						<li><a href="http://www.cyyl.top/curriculumvitae/">个人简历</a></li>
-			            <li><a href="http://jiapu.cyyl.top/">家族族谱</a></li>
-						<li><a href="http://zupu.cyyl.top/">家族族谱1</a></li>
-						<li><a href="http://jz.cyyl.top/">流水账统计</a></li>
-				<li><a href="http://frp.cyyl.top/">frp在线配置</a></li>
-			            <li><a href="https://5ddd.com/w578136454">飞牛NAS</a></li>
-						<!--<li><a href="http://jiapu.cyyl.top/mail.php">给我发邮件</a></li>-->
-                        <li><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=qZyekZian52cnenY2IfKxsQ">给我发邮件（QQ邮箱）</a></li>
-			<span style="color: rgb(0, 190, 0);">[root@yycq</span>
-                    <span style="color: blue;">]$ </span>
-                    <span style="color: rgb(39, 39, 39);">sudo rm -rf</span>
-			<p>rm：在"/"进行递归操作十分危险</p>
-			<p>rm：使用 --no- preservr- root 选项跳过安全模式</p>
-		    <span style="color: rgb(0, 190, 0);">[root@yycq</span>
-                    <span style="color: blue;">]$<a class="blinking-cursor">&nbsp;</a></span>
-		</div>
             </div>
-
         </div>
-    </div>
-
-    <!-- 页脚 -->
-    <div id="footer">
-        <!--<p>© 2023 yycq | <a href="http://www.cyyl.top/">黔ICP备XXXXXX号</a></p>-->
-        <p>theme made BY <a href="http://www.cyyl.top/">夜月残缺</a></p>
-		<p><a href="https://github.com/yeyuecanque/Index">GitHub</a></p>
+        <!--<div class="intro fade-in">
+            <p>我是王成，怀揣着对技术的无限热爱与执着，投身于全栈开发领域。在不断的学习与实践中，积累了丰富的项目经验，具备了扎实的技术功底和创新能力。始终坚信技术的力量能够改善生活，致力于通过自己的专业知识为用户打造高效、优质的产品体验。注重团队协作，善于沟通交流，能够与不同背景的人紧密合作，共同攻克项目中的难题。</p>
+        </div>-->
+        <div class="section fade-in">
+            <h2>教育经历</h2>
+            <div class="timeline-item">
+                <h3>贵州省建设学校 - 工业与民用建筑 - 专科（中专）</h3>
+                <p>2009 - 2012</p>
+                <ol>
+                    <li>熟悉建筑工程现场施工管理。</li>
+                    <li>熟悉CAD、施工图纸、现场安全及质量管理。</li>
+                    <li>利用课余时间自主学习网站开发机易语言编程技术，完成了多个小型网站的开发。</li>
+                </ol>
+            </div>
+        </div>
+		<div class="section fade-in">
+            <h2>已有证书</h2>
+            <div class="timeline-item">
+                <ol>
+                    <li>监理员。</li>
+                    <li>安全监理员。</li>
+                    <li>安全管理员（非煤矿山）。</li>
+                </ol>
+            </div>
+        </div>
+        <div class="section fade-in">
+            <h2>工作经历</h2>
+            <div class="timeline-item">
+                <h3>贵州建工监理咨询有限公司 - 现场监理员、安全监理员</h3>
+                <p>2012 - 2020</p>
+                <ol>
+					<li>2012年7月入职贵州建工监理咨询有限公司，任职监理员；</li>
+					<li>2012年7月贵阳市新添大道中天花园B、C区，任职监理员；</li>
+					<li>2012年9月至2014年2月黔南州安龙县人民医院（新建）项目，任职监理员；</li>
+					<li>2014年2月至2015年8月贵阳市云岩区大上海商贸城，任职监理员、安全监理员；</li>
+					<li>2015年8月至2016年8月黔南州安龙县人民医院（新建）项目，任职监理员、安全监理员；</li>
+					<li>2016年8月至2017月2月黔南州都匀市云宫花城加固项目，任职监理员、安全监理员；</li>
+					<li>2017年2月至2017年5月贵阳市云岩区大上海商贸城，任职监理员、安全监理员；</li>
+					<li>2017年5月进入贵州建工监理咨询有限公司（直属一处）；</li>
+					<li>2017年5月至2018年8月贵阳市观山湖区林城西路市政道路工程、站前路市政道路工程，任职监理员、安全监理员；</li>
+					<li>2018年8月至2019年3月群升﹒大智汇28、29#地块任职安全监理员；</li>
+					<li>2019年3月至2020年5月群升﹒大智汇05#地块，任职安全监理员、土建监理员；</li>
+                </ol>
+            </div>
+            <div class="timeline-item">
+                <h3>浙江左科环境建设有限公司（广州分公司） - 现场施工员（栋号工长）</h3>
+                <p>2020年12月 - 2021年5月</p>
+                <ol>
+                    <li>负责江门市新会区钧明欢乐世界栋号工长。</li>
+                </ol>
+            </div>
+			<div class="timeline-item">
+                <h3>长顺县威远镇摆贵山建筑砂石有限公司 - 管理员、安全管理员</h3>
+                <p>2022年8月 - 2025年1月</p>
+                <ol>
+                    <li>负责矿山矿面现场生产管理；</li>
+					<li>负责矿山矿面现场安全生产管理；</li>
+					<li>矿山销售情况统计（日报、月报、年报）；</li>
+					<li>与相关部门事务往来对接等。</li>
+                </ol>
+            </div>
+        </div>
+        <div class="section fade-in">
+            <h2>其他技能</h2>
+            <div class="skills-container">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;">前端技能（HTML5、php、JavaScript） - 90%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;">后端技术（Python、Flask、Django、Node.js） - 85%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;">数据库（MySQL、PostgreSQL、MongoDB、Redis） - 80%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%;">编程及其他（易语言、NAS、Pr、office、CAD等） - 70%</div>
+                    </div>
+                </div>
+                <div class="radar-container">
+                    <canvas class="radar-chart" id="radarChart"></canvas>
+                </div>
+            </div>
+            <script>
+                const ctx = document.getElementById('radarChart').getContext('2d');
+                const myRadarChart = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['前端技能', '后端技术', '数据库', '编程及其他'],
+                        datasets: [{
+                            label: '技能水平',
+                            data: [90, 85, 80, 70],
+                            backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                            borderColor: 'rgba(0, 123, 255, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            r: {
+                                min: 0,
+                                max: 100
+                            }
+							
+                        }
+                    }
+                });
+            </script>
+        </div>
+        <!-- <div class="footer-contact">
+            <a href="tel:13985454012"><i class="fa-solid fa-phone"></i></a>
+            <a href="mailto:578136454@qq.com"><i class="fa-solid fa-envelope"></i></a>
+            <a href="#"><i class="fa-brands fa-weixin"></i></a>
+            <a href="https://github.com/yeyuecanque"><i class="fa-brands fa-github"></i></a>
+            <a href="http://www.cyyl.top"><i class="fa-brands fa-zhihu"></i></a>
+        </div> -->
     </div>
 </body>
-<style>
-  .blinking-cursor {
-    font-size: 20px;
-    font-family: monospace;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 1px solid black;
-    animation: blinkCursor 0.7s step-end infinite;
-  }
-  @keyframes blinkCursor {
-    from, to { opacity: 0; }
-    50% { opacity: 1; }
-  }
-</style>
-</html>
-
+<script>    
+    $(document).ready(function(){       
+        var clipboard = new Clipboard('#copy_btn');    
+        clipboard.on('success', function(e) {    
+            alert("复制成功，打开微信添加好友",1500); 
+            window.location.href='weixin://';
+            e.clearSelection();    
+            console.log(e.clearSelection);    
+        });    
+    });    
+</script> 
+</html>    
