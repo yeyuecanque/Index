@@ -10,6 +10,8 @@
         content="夜月残缺">
     <meta name="keywords" content="夜月残缺">
     <link rel="stylesheet" type="text/css" href="./css/nutssss.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/qrcode.js"></script>
     <link rel="icon" href="./favicon.ico">
 	<script>
     var i=0;
@@ -27,6 +29,7 @@
     setInterval(myDate,1000);
 </script>
 
+
 </head>
 
 <body>
@@ -42,8 +45,8 @@
                 <div class="fg"></div>
             </div>
             <div class="meBox-text">
-                <p>刻意的强求，不如顺其自然！</p>
-				<p><img src="./img/qrcode_www.cyyl.top.png" alt="本站二维码" style="width: 150px; vertical-align: middle;"></p>
+                <p>刻意的强求，不然顺其自然！</p>
+				<p><div id="qrcode" style="width:150px; height:150px; margin:15px auto 0 auto;"></div></p>
 				<p>本站二维码</p>
             </div>
             <!-- 两个按钮
@@ -90,11 +93,8 @@
                     <p>我的其他站点：</p>
                         <li><a href="http://blog.cyyl.top/">我的博客</a></li>
 			            <li><a href="http://jiapu.cyyl.top/">家族族谱</a></li>
-						<li><a href="http://zupu.cyyl.top/">家族族谱1</a></li>
 						<li><a href="http://jz.cyyl.top/">流水账统计</a></li>
-				<li><a href="http://frp.cyyl.top/">frp在线配置</a></li>
-			            <li><a href="https://5ddd.com/w578136454">飞牛NAS</a></li>
-						<!--<li><a href="http://jiapu.cyyl.top/mail.php">给我发邮件</a></li>-->
+				        <li><a href="http://frp.cyyl.top/">frp在线配置</a></li>
                         <li><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=qZyekZian52cnenY2IfKxsQ">给我发邮件（QQ邮箱）</a></li>
 			<span style="color: rgb(0, 190, 0);">[root@yycq</span>
                     <span style="color: blue;">]$ </span>
@@ -116,6 +116,29 @@
 		<p><a href="https://github.com/yeyuecanque/Index">GitHub</a></p>
     </div>
 </body>
+<script type="text/javascript">
+// 初始化二维码生成器
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+	width : 150,
+	height : 150
+});
+
+// 自动获取当前页面地址并生成二维码
+function makeCode () {
+    // 直接获取当前页URL，无需输入框
+    var currentUrl = window.location.href;
+    
+    if (!currentUrl) {
+        alert("获取页面地址失败");
+        return;
+    }
+    
+    qrcode.makeCode(currentUrl);
+}
+
+// 页面加载立即执行
+makeCode();
+</script>
 <style>
   .blinking-cursor {
     font-size: 20px;
