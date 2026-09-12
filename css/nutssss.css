@@ -44,7 +44,7 @@ body {
 .headPhoto {
     width: 8rem;
     height: 8rem;
-    background: url("../img/yycq.png") no-repeat;
+    background: url("../favicon.ico") no-repeat;
     background-size: cover;
     border-radius: 50%;
     position: relative;
